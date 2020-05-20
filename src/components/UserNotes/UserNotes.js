@@ -9,6 +9,7 @@ import apiUrl from '../../apiConfig'
 import NoteForm from '../../Shared/NoteForm'
 // import Button from 'react-bootstrap/Button'
 import Layout from '../../Shared/Layout'
+// import user from '../../api/auth'
 
 class NoteCreate extends Component {
   constructor () {
@@ -35,10 +36,15 @@ class NoteCreate extends Component {
   handleSubmit = async (event) => {
     event.preventDefault()
 
+    const { user } = this.props
+
     try {
       const res = await axios({
         url: `${apiUrl}/usernotes`,
         method: 'POST',
+        headers: {
+          'Authorization': `Token token=${user.token}`
+        },
         data: {
           usernote: this.state.usernote
         }
