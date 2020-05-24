@@ -4,12 +4,9 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
-// import messages from '../AutoDismissAlert/messages'
-
 import NoteForm from '../../Shared/NoteForm'
-// import Button from 'react-bootstrap/Button'
+
 import Layout from '../../Shared/Layout'
-// import user from '../../api/auth'
 
 class NoteCreate extends Component {
   constructor () {
@@ -50,6 +47,13 @@ class NoteCreate extends Component {
         }
       })
       this.setState({ createdId: res.data.usernote._id })
+      // console.log(user.token)
+      // store the json items locally?
+      // find the length of the array and userid and give the createdID that #
+      // need to find the index of the newobject in the array json
+      // ?
+      // it knows the data of the state/newnote
+      // console log delivers 'undefined' ... createdId has no id
     } catch (err) {
       console.error(err)
     }
@@ -81,6 +85,8 @@ class NoteCreate extends Component {
     const { usernote, createdId } = this.state
 
     let noteJsx
+
+    console.log('createdId is ', createdId)
 
     if (createdId) {
       // redirect

@@ -5,9 +5,9 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
 // Import layout:
-import Layout from '../shared/Layout'
+import Layout from '../../Shared/Layout'
 
-class BookIndex extends Component {
+class NoteIndex extends Component {
   constructor () {
     // Call the constructor on the parent class
     // Which is Component
@@ -27,10 +27,15 @@ class BookIndex extends Component {
   //     })
   //     .catch(console.error)
   // }
-
   async componentDidMount () {
+    const { user } = this.props
     try {
-      const res = await axios(`${apiUrl}/usernotes`)
+      const res = await axios({
+        url: `${apiUrl}/usernotes`,
+        headers: {
+          'Authorization': `Token token=${user.token}`
+        }
+      })
       this.setState({ usernotes: res.data.usernotes })
     } catch (err) {
       console.error(err)
@@ -47,9 +52,9 @@ class BookIndex extends Component {
     } else {
       noteJsx = (
         <ul>
-          {usernotes.map(usernote => (
-            <li key={usernote._id}>
-              <Link to={`/usernotes/${usernote._id}`}>{usernote.title}</Link>
+          {usernotes.map(usernotes => (
+            <li key={usernotes._id}>
+              <Link to={`/usernotes/${usernotes._id}`}>{usernotes.title}</Link>
             </li>
           ))}
         </ul>
@@ -65,4 +70,4 @@ class BookIndex extends Component {
   }
 }
 
-export default BookIndex
+export default NoteIndex

@@ -4,9 +4,9 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
-import NoteForm from '../shared/usernoteForm'
+import NoteForm from '../../Shared/NoteForm'
 
-import Layout from '../shared/Layout'
+import Layout from '../../Shared/Layout'
 
 class NoteUpdate extends Component {
   constructor () {
@@ -18,8 +18,14 @@ class NoteUpdate extends Component {
   }
 
   componentDidMount () {
+    const { user } = this.props
     // axios request
-    axios(`${apiUrl}/usernotes/${this.props.match.params.id}`)
+    axios({
+      url: `${apiUrl}/usernotes/${this.props.match.params.id}`,
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
       .then(res => {
         this.setState({ usernote: res.data.usernote })
       })
@@ -42,10 +48,14 @@ class NoteUpdate extends Component {
   }
 
   handleSubmit = (event) => {
+    const { user } = this.props
     event.preventDefault()
 
     axios({
       url: `${apiUrl}/usernotes/${this.props.match.params.id}`,
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      },
       method: 'PATCH',
       data: {
         usernote: this.state.usernote
