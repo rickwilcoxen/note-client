@@ -2,16 +2,16 @@
 Project prompt/idea: create a mental health resource app that allows users to save information like doctor's phone numbers or med info.
 
 ## Important Links
-- [Other Repo](https://github.com/rickwilcoxen/note-api)
-- [Deployed API](https://rocky-basin-34781.herokuapp.com/)
-- [Deployed Client](https://rickwilcoxen.github.io/note-client/)
+[Other Repo](https://github.com/rickwilcoxen/note-api)
+[Deployed API](https://rocky-basin-34781.herokuapp.com/)
+[Deployed Client](https://rickwilcoxen.github.io/note-client/)
 
 ## Planning Story
 Other similar apps are usually only available on phones and aren't necessarily helpful for people who have vision impairments or problems using tiny screens.
 
 Doctor's numbers can get lost in papers or other notes on phones, and med information can sometimes be difficult to remember for people with memory issues. This app is meant to be a place where users can save necessary information in a single place.
 
-![Plan](https://imgur.com/X2U8e3i)
+![Plan](https://i.imgur.com/X2U8e3i.png)
 
 ### User Stories
 
@@ -47,7 +47,7 @@ Would like to eventually make the app bigger and have more functionality as a me
 ## Images
 
 ### Wireframes
-![wireframe](https://imgur.com/VmyaJoF)
+![wireframe](https://i.imgur.com/VmyaJoF.png)
 
 ### ERD
-![ERD](https://imgur.com/Px3X7JG)
+![ERD](https://i.imgur.com/Px3X7JG.png)
