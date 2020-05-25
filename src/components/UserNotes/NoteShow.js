@@ -3,7 +3,7 @@ import { Redirect, Link } from 'react-router-dom'
 
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-
+import messages from '../AutoDismissAlert/messages'
 import Layout from '../../Shared/Layout'
 
 class NotesShow extends Component {
@@ -33,7 +33,7 @@ class NotesShow extends Component {
   }
 
   destroy = (event) => {
-    const { user } = this.props
+    const { user, msgAlert } = this.props
     axios.delete({
       url: `${apiUrl}/usernotes/${this.props.match.params.id}`,
       headers: {
@@ -42,6 +42,11 @@ class NotesShow extends Component {
     })
       .then(() => {
         this.setState({ deleted: true })
+        msgAlert({
+          heading: 'Note Deleted Successfully',
+          message: messages.deleteSuccess,
+          variant: 'success'
+        })
       })
       .catch(console.error)
   }

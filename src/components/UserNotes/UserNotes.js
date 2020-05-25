@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-
+import messages from '../AutoDismissAlert/messages'
 import NoteForm from '../../Shared/NoteForm'
 
 import Layout from '../../Shared/Layout'
@@ -33,7 +33,7 @@ class NoteCreate extends Component {
   handleSubmit = async (event) => {
     event.preventDefault()
 
-    const { user } = this.props
+    const { msgAlert, user } = this.props
 
     try {
       const res = await axios({
@@ -47,52 +47,41 @@ class NoteCreate extends Component {
         }
       })
       this.setState({ createdId: res.data.usernote.id })
+      msgAlert({
+        heading: 'Note Created Successfully',
+        message: messages.newNoteSuccess,
+        variant: 'success'
+      })
     } catch (err) {
       console.error(err)
+      this.setState({ title: '', contents: '' })
+      msgAlert({
+        heading: 'Creation Failed with error: ' + err.message,
+        message: messages.newNoteFailure,
+        variant: 'danger'
+      })
     }
   }
-  //  onCreateNote = event => {
-  //    event.preventDefault()
-  //
-  //    const { msgAlert, history, setUser } = this.props
-  //
-  //    userNote(this.state)
-  //      .then(res => setUser(res.data.user))
-  //      .then(() => msgAlert({
-  //        heading: 'Note Created Successfully',
-  //        message: messages.newNoteSuccess,
-  //        variant: 'success'
-  //      }))
-  //      .then(() => history.push('/'))
-  //      .catch(error => {
-  //        this.setState({ title: '', contents: '' })
-  //        msgAlert({
-  //          heading: 'Creation Failed with error: ' + error.message,
-  //          message: messages.newNoteFailure,
-  //          variant: 'danger'
-  //        })
-  //      })
-  //  }
 
   render () {
-    const { usernote, createdId } = this.state
+    const { usernote } = this.state
 
-    let noteJsx
+    // let noteJsx
 
     // console.log('createdId is ', createdId)
 
-    if (createdId) {
-      // redirect
-      noteJsx = <Redirect to={`/usernotes/${createdId}`}/>
-    } else {
-      noteJsx = (
-        <NoteForm
-          usernote={usernote}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
-      )
-    }
+    //   if (createdId) {
+    // redirect
+    //   noteJsx = <Redirect to={'/usernotes/'}/>
+    // } else {
+    const noteJsx = (
+      <NoteForm
+        usernote={usernote}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+      />
+    )
+    //    }
     return (
       <Layout>
         <h1>Create Note</h1>
