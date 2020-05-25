@@ -46,14 +46,7 @@ class NoteCreate extends Component {
           usernote: this.state.usernote
         }
       })
-      this.setState({ createdId: res.data.usernote._id })
-      // console.log(user.token)
-      // store the json items locally?
-      // find the length of the array and userid and give the createdID that #
-      // need to find the index of the newobject in the array json
-      // ?
-      // it knows the data of the state/newnote
-      // console log delivers 'undefined' ... createdId has no id
+      this.setState({ createdId: res.data.usernote.id })
     } catch (err) {
       console.error(err)
     }
@@ -86,7 +79,7 @@ class NoteCreate extends Component {
 
     let noteJsx
 
-    console.log('createdId is ', createdId)
+    // console.log('createdId is ', createdId)
 
     if (createdId) {
       // redirect

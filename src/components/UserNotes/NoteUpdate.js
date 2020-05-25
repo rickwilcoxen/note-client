@@ -74,7 +74,7 @@ class NoteUpdate extends Component {
     if (!usernote) {
       noteJsx = 'Loading...'
     } else if (updated) {
-      noteJsx = <Redirect to={`/usernotes/${this.props.match.params.id}`}/>
+      noteJsx = <Redirect to={'/usernotes/'}/>
     } else {
       noteJsx = (
         <NoteForm

@@ -53,8 +53,8 @@ class NoteIndex extends Component {
       noteJsx = (
         <ul>
           {usernotes.map(usernotes => (
-            <li key={usernotes._id}>
-              <Link to={`/usernotes/${usernotes._id}`}>{usernotes.title}</Link>
+            <li key={usernotes.id}>
+              <Link to={`/usernotes/${usernotes.id}`}>{usernotes.title}</Link>
             </li>
           ))}
         </ul>

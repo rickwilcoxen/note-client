@@ -12,7 +12,7 @@ class NotesShow extends Component {
 
     // useful!!! state!!!
     this.state = {
-      usernotes: null,
+      usernote: null,
       deleted: false
     }
   }
@@ -20,14 +20,14 @@ class NotesShow extends Component {
   componentDidMount () {
     const { user } = this.props
     axios({
-      url: `${apiUrl}/usernotes/${this.props.match.params._id}`,
+      url: `${apiUrl}/usernotes/${this.props.match.params.id}`,
       headers: {
         'Authorization': `Token token=${user.token}`
       }
     })
       .then(res => {
-        console.log(res)
-        this.setState({ usernotes: res.data.usernotes })
+        // console.log(res)
+        this.setState({ usernote: res.data.usernote })
       })
       .catch(console.error)
   }
@@ -35,7 +35,7 @@ class NotesShow extends Component {
   destroy = (event) => {
     const { user } = this.props
     axios.delete({
-      url: `${apiUrl}/usernotes/${this.props.match.params._id}`,
+      url: `${apiUrl}/usernotes/${this.props.match.params.id}`,
       headers: {
         'Authorization': `Token token=${user.token}`
       }
@@ -47,10 +47,10 @@ class NotesShow extends Component {
   }
 
   render () {
-    const { usernotes, deleted } = this.state
+    const { usernote, deleted } = this.state
 
     let noteJsx
-    if (!usernotes) {
+    if (!usernote) {
       noteJsx = 'Loading...'
     } else if (deleted) {
       // If we deleted the usernote, redirect to `/usernotes`
@@ -58,12 +58,12 @@ class NotesShow extends Component {
     } else {
       noteJsx = (
         <div>
-          <h3>Title: {usernotes.title}</h3>
-          <h4>Contents: {usernotes.contents}</h4>
-          <h4>Tag: {usernotes.tag}</h4>
+          <h3>Title: {usernote.title}</h3>
+          <h4>Contents: {usernote.contents}</h4>
+          <h4>Tag: {usernote.tag}</h4>
           <button onClick={this.destroy}>Delete</button>
           <button>
-            <Link to={`/usernotes/${this.props.match.params._id}/edit`}>Update</Link>
+            <Link to={`/usernotes/${this.props.match.params.id}/edit`}>Update</Link>
           </button>
         </div>
       )
