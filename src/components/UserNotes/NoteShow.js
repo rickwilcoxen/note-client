@@ -18,7 +18,7 @@ class NotesShow extends Component {
 
   componentDidMount () {
     const { user } = this.props
-    console.log('view url', apiUrl)
+    // console.log('view url', apiUrl)
     axios({
       url: `${apiUrl}/usernotes/${this.props.match.params.id}`,
       headers: {
@@ -58,7 +58,7 @@ class NotesShow extends Component {
 
   render () {
     const { usernote, deleted } = this.state
-    console.log(this.state)
+    // console.log(this.state)
 
     let noteJsx
     if (!usernote) {
