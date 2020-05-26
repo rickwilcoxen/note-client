@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
@@ -9,7 +9,6 @@ import Layout from '../../Shared/Layout'
 class NotesShow extends Component {
   constructor () {
     super()
-
     // useful!!! state!!!
     this.state = {
       usernote: null,
@@ -19,6 +18,7 @@ class NotesShow extends Component {
 
   componentDidMount () {
     const { user } = this.props
+    console.log('view url', apiUrl)
     axios({
       url: `${apiUrl}/usernotes/${this.props.match.params.id}`,
       headers: {
@@ -32,14 +32,19 @@ class NotesShow extends Component {
       .catch(console.error)
   }
 
-  destroy = (event) => {
+  handleSubmit = (event) => {
     const { user, msgAlert } = this.props
-    axios.delete({
-      url: `${apiUrl}/usernotes/${this.props.match.params.id}`,
+
+    const config = {
       headers: {
         'Authorization': `Token token=${user.token}`
+      },
+      data: {
+        usernote: this.state.usernote
       }
-    })
+    }
+
+    axios.delete(`${apiUrl}/usernotes/${this.props.match.params.id}`, config)
       .then(() => {
         this.setState({ deleted: true })
         msgAlert({
@@ -53,20 +58,21 @@ class NotesShow extends Component {
 
   render () {
     const { usernote, deleted } = this.state
+    console.log(this.state)
 
     let noteJsx
     if (!usernote) {
       noteJsx = 'Loading...'
     } else if (deleted) {
       // If we deleted the usernote, redirect to `/usernotes`
-      noteJsx = <Redirect to="/usernotes"/>
+      noteJsx = <Redirect to={'/usernotes/'}/>
     } else {
       noteJsx = (
         <div>
           <h3>Title: {usernote.title}</h3>
           <h4>Contents: {usernote.contents}</h4>
           <h4>Tag: {usernote.tag}</h4>
-          <button onClick={this.destroy}>Delete</button>
+          <button onClick={this.handleSubmit}>Delete</button>
           <button>
             <Link to={`/usernotes/${this.props.match.params.id}/edit`}>Update</Link>
           </button>
@@ -83,4 +89,4 @@ class NotesShow extends Component {
   }
 }
 
-export default NotesShow
+export default withRouter(NotesShow)

@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-
 import NoteForm from '../../Shared/NoteForm'
-
 import Layout from '../../Shared/Layout'
 
 class NoteUpdate extends Component {
@@ -94,4 +92,4 @@ class NoteUpdate extends Component {
   }
 }
 
-export default NoteUpdate
+export default withRouter(NoteUpdate)

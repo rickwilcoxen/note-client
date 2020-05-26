@@ -10,7 +10,7 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import UserNotes from '../UserNotes/UserNotes'
 import NoteIndex from '../UserNotes/NoteIndex'
-import NoteShow from '../UserNotes/NoteShow'
+import NotesShow from '../UserNotes/NoteShow'
 import NoteUpdate from '../UserNotes/NoteUpdate'
 import Home from '../Main/Main'
 
@@ -67,7 +67,7 @@ class App extends Component {
             <NoteIndex match={match} msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/usernotes/:id' render={({ match }) => (
-            <NoteShow match={match} msgAlert={this.msgAlert} user={user} />
+            <NotesShow match={match} msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/usernotes/:id/edit' render={({ match }) => (
             <NoteUpdate match={match} msgAlert={this.msgAlert} user={user} />

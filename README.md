@@ -6,6 +6,11 @@ A mental health resource app that allows users to save information like doctor's
 -[Deployed API](https://rocky-basin-34781.herokuapp.com/)
 -[Deployed Client](https://rickwilcoxen.github.io/note-client/)
 
+## Download/Set up Instructions
+1. Fork and clone
+2. Run ```npm install``` to install dependencies
+3. run ```npm run start``` to start the server
+
 ## Planning Story
 Other similar apps are usually only available on phones and aren't necessarily helpful for people who have vision impairments or problems using tiny screens.
 

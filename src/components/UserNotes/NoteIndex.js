@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
@@ -34,7 +34,8 @@ class NoteIndex extends Component {
         url: `${apiUrl}/usernotes`,
         headers: {
           'Authorization': `Token token=${user.token}`
-        }
+        },
+        method: 'GET'
       })
       this.setState({ usernotes: res.data.usernotes })
     } catch (err) {
@@ -70,4 +71,4 @@ class NoteIndex extends Component {
   }
 }
 
-export default NoteIndex
+export default withRouter(NoteIndex)
