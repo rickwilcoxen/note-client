@@ -30,6 +30,12 @@ I hope to create a well functioning app that helps those with undiagnosed disabi
 
 ![Plan](https://i.imgur.com/X2U8e3i.png)
 
+### Wireframes
+![wireframe](https://i.imgur.com/VmyaJoF.png)
+
+### ERD
+![ERD](https://i.imgur.com/Px3X7JG.png)
+
 ### User Stories
 
 - As a first time user I would like to be able to sign up and log in.
@@ -67,8 +73,7 @@ In later versions I would like to have the app contain far more useful informati
 
 ## Images
 
-### Wireframes
-![wireframe](https://i.imgur.com/VmyaJoF.png)
-
-### ERD
-![ERD](https://i.imgur.com/Px3X7JG.png)
+### Logged in
+![Logged in](https://i.imgur.com/db6P8Ug.png)
+### New User
+![New User](https://i.imgur.com/oAQKeW5.png)
