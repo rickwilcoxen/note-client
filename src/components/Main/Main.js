@@ -1,5 +1,7 @@
 import React from 'react'
 // import { withRouter } from 'react-router-dom'
+import SolidButton from '../../Shared/SolidButton'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const backgroundImageUrl = 'https://media.giphy.com/media/UYBDCJjwOd9Re/giphy.gif'
@@ -27,6 +29,13 @@ const Home = () => {
     <div style={homeStyles}>
       <div>
         <h1>One Stop For All Your [Brain]Notes</h1>
+        <p>A safe space for all your notes in one place.</p>
+        <Link to='/About'>
+          <SolidButton>About</SolidButton>
+        </Link>
+        <Link to='/About'>
+          <SolidButton>Mental Health Resources</SolidButton>
+        </Link>
       </div>
     </div>
   )

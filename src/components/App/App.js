@@ -13,6 +13,7 @@ import NoteIndex from '../UserNotes/NoteIndex'
 import NotesShow from '../UserNotes/NoteShow'
 import NoteUpdate from '../UserNotes/NoteUpdate'
 import Home from '../Main/Main'
+import About from '../About/About'
 
 class App extends Component {
   constructor () {
@@ -48,6 +49,7 @@ class App extends Component {
         ))}
         <main className="container">
           <Route exact path='/' component={Home} />
+          <Route exact path='/About' component={About} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
