@@ -51,7 +51,9 @@ I hope to create a well functioning app that helps those with undiagnosed disabi
 - Bootstrap
 - Javascript
 - React
+  - Styled Components (https://styled-components.com/docs/basics#installation)
 - Ruby on Rails
+
 
 ### Catalog of Routes
 Verb         |	URI Pattern
