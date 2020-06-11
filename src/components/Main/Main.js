@@ -19,7 +19,7 @@ const Home = () => {
 
     /* Take up half the viewport's height, (50 out of 100) */
     height: '100vh',
-
+    width: '100vw',
     color: 'White',
     textAlign: 'center'
   }
