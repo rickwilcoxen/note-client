@@ -85,7 +85,7 @@ class NoteUpdate extends Component {
 
     return (
       <Layout>
-        <h1>usernote Update</h1>
+        <h1 className='underline'>Update Notes</h1>
         {noteJsx}
       </Layout>
     )

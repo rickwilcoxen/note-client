@@ -82,7 +82,7 @@ class NotesShow extends Component {
 
     return (
       <Layout>
-        <h1>Show Notes</h1>
+        <h1 className='underline'>Show Notes</h1>
         {noteJsx}
       </Layout>
     )

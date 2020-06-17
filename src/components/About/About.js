@@ -13,10 +13,13 @@ const About = () => {
     color: 'black',
     textAlign: 'left'
   }
+  const divStyles = {
+    textAlign: 'left'
+  }
   return (
     <div style={aboutStyles} className='About' Style={{ flex: 1, flexDirection: 'column' }}>
-      <div>
-        <h1>About [Brain]Notes</h1>
+      <div style={divStyles} className='DivDesign'>
+        <h1 className='underline'>About [Brain]Notes</h1>
         <p>Doctors office numbers can get lost in papers or other notes on phones, and med information can sometimes be difficult to remember for people with memory issues. This app is meant to be a place where users can save necessary information in a single place.</p>
         <p>[Brain]Notes seek to solve incredibly specific problems when it comes to mental health and chronic illness, namely keeping track of notes that you need either every once in a while, or every single day.</p>
         <p>Six years ago, my best friend and current roommate began to experience symptoms of an unknown illness. Doctors were more than stumped and the opposite of helpful - they blamed her health issues on ridiculous things, like previous trauma or that it was psychosematic. They told her to eat salty foods and come back in 2 weeks if it gets worse (a common excuse doctors use for those with chronic illness). Other non-professionals told her to use essential oils, put crystals on her head while standing upside down, and to drink more water. Needless to say, none of these things helped. At all.</p>
@@ -41,13 +44,14 @@ const About = () => {
         <p>
         This app is an ongoing project for me. Checkout the links below to keep up with my process or to check out my code. This app, as always, is opensource and feel free to reach out with suggestions or comments.</p>
       </div>
-      <div>
-        <h2>Documentation</h2>
-        <a href="https://github.com/rickwilcoxen/note-client">Github Repository</a>
+      <div style={divStyles} className='DivDesign'>
+        <h2 className='underline'>Documentation</h2>
+        <div><a href="https://github.com/rickwilcoxen/note-client">Github Client Repository</a></div>
+        <div><a href="https://github.com/rickwilcoxen/note-api">Github API Repository</a></div>
         <p>Version 1.1: This app is still in the early stages of development. The very basic skeleton has been laid out, and you can create notes as you please. Stay tuned for more!</p>
       </div>
-      <div>
-        <h2>Contact Links</h2>
+      <div style={divStyles} className='DivDesign'>
+        <h2 className='underline'>Contact Links</h2>
         <p>This app was created by Rick Wilcoxen.</p>
         <a href="https://github.com/rickwilcoxen">GitHub</a>
         <p>rickwilcoxen95@gmail.com</p>

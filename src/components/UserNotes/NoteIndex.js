@@ -64,7 +64,7 @@ class NoteIndex extends Component {
 
     return (
       <Layout>
-        <h1>Notes Page</h1>
+        <h1 className='underline'>Notes Page</h1>
         {noteJsx}
       </Layout>
     )

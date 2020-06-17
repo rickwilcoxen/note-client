@@ -84,7 +84,7 @@ class NoteCreate extends Component {
     //    }
     return (
       <Layout>
-        <h1>Create Note</h1>
+        <h1 className='underline'>Create Note</h1>
         {noteJsx}
       </Layout>
     //      <div className="row">

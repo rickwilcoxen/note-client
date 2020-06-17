@@ -4,7 +4,7 @@ import React from 'react'
 // import Footer from './Footer'
 
 const Layout = (props) => (
-  <div>
+  <div className='DivDesign'>
     {props.children}
   </div>
 )
