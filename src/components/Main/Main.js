@@ -29,7 +29,7 @@ const Home = () => {
     <div style={homeStyles}>
       <div>
         <h1>One Stop For All Your [Brain]Notes</h1>
-        <p>A safe space for all your notes in one place.</p>
+        <p>A safe space for mental health resources and more. Sign in to start taking your notes.</p>
         <Link to='/About'>
           <SolidButton>About</SolidButton>
         </Link>
